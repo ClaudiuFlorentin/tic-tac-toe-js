@@ -1,0 +1,99 @@
+:root {
+    --gradient: linear-gradient(120deg, #469bf0, #0c549c);
+    --cellSize: 75px;
+    --cellGap: 10px;
+    --widthSize: calc((var(--cellSize) * 3) + (var(--cellGap) * 2));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background: var(--gradient);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.board-game-title {
+    color: #fff;
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+#board-game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--cellGap);
+    max-width: var(--widthSize);
+}
+
+.board-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    width: var(--cellSize);
+    height: var(--cellSize);
+    font-size: 40px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
+    cursor: pointer;
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+
+.o::before {
+    content: '⭕';
+}
+
+.x::before {
+    content: '✖️';
+}
+
+.game-over {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.game-over .game-over-text {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.game-over .game-over-restart {
+    display: none;
+    color: #fff;
+    background: #0c549c;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+    letter-spacing: .5px;
+    border: 0;
+    outline: 0;
+    padding: 12px 20px;
+    margin: 20px auto 0 auto;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.game-over .game-over-restart.visible {
+    display: block;
+}
+
+.game-over .game-score {
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+}
